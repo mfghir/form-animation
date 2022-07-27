@@ -109,6 +109,9 @@ function colorize(color, line, placeholder) {
   gsap.to(placeholder, { color: color, duration: 0.75 });
 }
 
+
+
+
 //Checkbox animation fill
 const checkbox = document.querySelector(".checkbox");
 const tl2 = gsap.timeline({
@@ -144,3 +147,33 @@ checkbox.addEventListener("click", () => {
     tl2.to(".checkbox-label", { color: "#c5c5c5" }, "<");
   }
 });
+
+
+
+//Animating Character
+gsap.set("#eye", { transformOrigin: "center" });
+gsap.set(".leftHand", { transformOrigin: "bottom" });
+// gsap.set(".leftHandLine", { transformOrigin: "bottom" });
+gsap.fromTo(
+  "#eye",
+  { scaleY: 1 },
+  {
+    scaleY: 0.3,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 0.5,
+    ease: "Power2.easeOut",
+  }
+);
+gsap.fromTo(
+  "#eyebrow",
+  { y: 0 },
+  { y: -1, repeat: -1, yoyo: true, repeatDelay: 0.5, ease: "Power2.easeOut" }
+);
+
+gsap.fromTo(
+  ".leftHand",
+  { rotation: -10 },
+  { rotation: 10, repeat: -1, yoyo: true, repeatDelay: 0.6, ease: "Power2.easeOut" }
+);
+
