@@ -109,9 +109,6 @@ function colorize(color, line, placeholder) {
   gsap.to(placeholder, { color: color, duration: 0.75 });
 }
 
-
-
-
 //Checkbox animation fill
 const checkbox = document.querySelector(".checkbox");
 const tl2 = gsap.timeline({
@@ -153,7 +150,7 @@ checkbox.addEventListener("click", () => {
 //Animating Character
 gsap.set("#eye", { transformOrigin: "center" });
 gsap.set(".leftHand", { transformOrigin: "bottom" });
-// gsap.set(".leftHandLine", { transformOrigin: "bottom" });
+
 gsap.fromTo(
   "#eye",
   { scaleY: 1 },
@@ -165,6 +162,7 @@ gsap.fromTo(
     ease: "Power2.easeOut",
   }
 );
+
 gsap.fromTo(
   "#eyebrow",
   { y: 0 },
@@ -174,6 +172,37 @@ gsap.fromTo(
 gsap.fromTo(
   ".leftHand",
   { rotation: -10 },
-  { rotation: 10, repeat: -1, yoyo: true, repeatDelay: 0.6, ease: "Power2.easeOut" }
+  {
+    rotation: 10,
+    repeat: -1,
+    yoyo: true,
+    repeatDelay: 0.8,
+    ease: "Power2.easeOut",
+  }
 );
 
+
+
+//Submit button
+const button = document.querySelector("button");
+const tl3 = gsap.timeline({
+  defaults: { duration: 0.75, ease: "Power2.easeOut" },
+});
+
+button.addEventListener("click", (e) => {
+  e.preventDefault();
+  tl3.to(".contact-right, .contact-left", {
+    y: 30,
+    opacity: 0,
+    pointerEvents: "none",
+  });
+  tl3.to("form", { scale: 0.8 }, "<");
+  tl3.fromTo(".submitted", { opacity: 0, y: 30 }, { opacity: 1, y: 0 });
+  //Hand wave
+  gsap.set("#hand", { transformOrigin: "left" });
+  gsap.fromTo(
+    "#hand",
+    { rotation: 0, y: 0 },
+    { rotation: -10, y: 2, ease: "elastic(3,0.3)", duration: 2, delay: 1 }
+  );
+});
