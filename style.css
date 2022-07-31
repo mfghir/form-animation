@@ -22,7 +22,7 @@ form {
     color: #777474;
     border-radius: 2rem;
     padding: 2rem;
-    
+
     display: flex;
     position: relative;
 }
@@ -36,7 +36,7 @@ form {
     flex: 1;
 }
 
-.description{
+.description {
     margin-top: 10px;
     line-height: 25px;
 }
@@ -183,20 +183,31 @@ button {
     opacity: 0;
 }
 
-@media screen and (max-width: 812px) {
+@media screen and (max-width: 768px) {
+    /* body {
+        height: 100vh;
+    } */
+
     form {
         width: 90vw;
         min-height: 80vh;
         flex-direction: column;
-
-        padding: 8rem 3rem;
     }
 
+    .contact-right,
+    .contact-left,
+    .promo-container {
+        margin: 20px 0;
+    }
+    .input-container {
+        margin: 10px 0;
+    }
     .line-svg {
         width: 100%;
     }
 
     #character {
-        transform: scale(0.4) translate(0%, 30%);
+        transform: scale(0.4) translate(400%, 30%);
     }
 }
+
